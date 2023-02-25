@@ -25,6 +25,11 @@
                     <td th:text="${employee.name}"></td>
                     <td th:text="${employee.address}"></td>
                     <td th:text="${employee.salary}"></td>
+                    <td><a th:href="@{/delete/{id}(id=${employee.id})}">
+                        <button class="btn btn-danger">
+                            Delete
+                        </button></a>
+                    </td>
                 </tr>
             </tbody>
         </table>
