@@ -1,6 +1,8 @@
 package com.example.employee.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "employee")
@@ -9,10 +11,13 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NotBlank(message = "Please enter employee name.")
     private String name;
 
+    @NotBlank(message = "Employee address is mandatory.")
     private String address;
 
+    @Min(value = 0, message = "Salary should be greater than zero")
     private double salary;
 
     // No arg constructors
