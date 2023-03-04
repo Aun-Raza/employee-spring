@@ -3,9 +3,15 @@ package com.example.employee.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "employee")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,49 +25,4 @@ public class Employee {
 
     @Min(value = 0, message = "Salary should be greater than zero")
     private double salary;
-
-    // No arg constructors
-    public Employee() {
-    }
-
-    // All arg constructors
-    public Employee(int id, String name, String address, double salary) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.salary = salary;
-    }
-
-    // Getter and Setter methods
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
 }
